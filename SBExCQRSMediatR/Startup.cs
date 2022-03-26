@@ -1,3 +1,5 @@
+using System.Reflection;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,7 +28,7 @@ namespace SBExCQRSMediatR
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SBExCQRSMediatR", Version = "v1" });
             });
-            services.AddTransient<ICreateCustomerHandler, CreateCustomerHandler>();
+            services.AddMediatR(Assembly.GetExecutingAssembly());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,8 @@
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SBExCQRSMediatR.Domain.Commands.Requests;
-using SBExCQRSMediatR.Domain.Handlers;
+using SBExCQRSMediatR.Domain.Commands.Responses;
 
 namespace SBExCQRSMediatR.Controllers
 {
@@ -10,13 +12,12 @@ namespace SBExCQRSMediatR.Controllers
     {
         [HttpPost]
         [Route("")]
-        public IActionResult Create(
-                [FromServices] ICreateCustomerHandler handler,
+        public Task<CreateCustomerResponse> Create(
+                [FromServices] IMediator mediator,
                 [FromBody] CreateCustomerRequest command
             )
         {
-            var response = handler.Handle(command);
-            return Ok(response);
+            return mediator.Send(command);
         }
     }
 }
