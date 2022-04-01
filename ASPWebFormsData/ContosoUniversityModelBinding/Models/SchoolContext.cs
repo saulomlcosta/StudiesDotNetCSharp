@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Validation;
 
 namespace ContosoUniversityModelBinding.Models
 {
@@ -11,7 +10,7 @@ namespace ContosoUniversityModelBinding.Models
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
-        public DbSet<Course> Couses { get; set; }
+        public DbSet<Course> Courses { get; set; }
     }
 
     public class Student
@@ -23,8 +22,15 @@ namespace ContosoUniversityModelBinding.Models
         [Required, StringLength(40), Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Required, StringLength(20), Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
         [EnumDataType(typeof(AcademicYear)), Display(Name = "Academic Year")]
         public AcademicYear Year { get; set; }
+
+        [Range(typeof(DateTime), "1/1/2013", "1/1/3000", ErrorMessage = "Please provide an enrollment date after 1/1/2013")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
+        public DateTime EnrollmentDate { get; set; }
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
