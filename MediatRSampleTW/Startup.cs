@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MediatR;
+using MediatRSampleTW.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,9 @@ namespace MediatRSampleTW
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MediatRSampleTW", Version = "v1" });
             });
+            services.AddMediatR(typeof(Startup));
+            services.AddSingleton<IRepository<Pessoa>, PessoaRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
