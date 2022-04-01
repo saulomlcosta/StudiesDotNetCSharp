@@ -20,7 +20,7 @@ namespace MediatRSampleTW.Handlers
 
         public async Task<string> Handle(CadastraPessoaCommand request, CancellationToken cancellationToken)
         {
-            var pessoa = new Pessoa { Nome = request.Nome, Idade = request.Idade, Sexo = request.Sexo };
+            var pessoa = new Pessoa { Id = request.Id, Nome = request.Nome, Idade = request.Idade, Sexo = request.Sexo };
 
             try {
                 await _repository.Add(pessoa);

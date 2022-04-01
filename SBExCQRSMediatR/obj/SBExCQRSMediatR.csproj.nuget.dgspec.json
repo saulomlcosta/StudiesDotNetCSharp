@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\@Project\\StudiesDotNetCSharp\\SBExCQRSMediatR\\SBExCQRSMediatR.csproj": {}
+    "C:\\Labs\\StudiesDotNetCSharp\\SBExCQRSMediatR\\SBExCQRSMediatR.csproj": {}
   },
   "projects": {
-    "C:\\@Project\\StudiesDotNetCSharp\\SBExCQRSMediatR\\SBExCQRSMediatR.csproj": {
+    "C:\\Labs\\StudiesDotNetCSharp\\SBExCQRSMediatR\\SBExCQRSMediatR.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\@Project\\StudiesDotNetCSharp\\SBExCQRSMediatR\\SBExCQRSMediatR.csproj",
+        "projectUniqueName": "C:\\Labs\\StudiesDotNetCSharp\\SBExCQRSMediatR\\SBExCQRSMediatR.csproj",
         "projectName": "SBExCQRSMediatR",
-        "projectPath": "C:\\@Project\\StudiesDotNetCSharp\\SBExCQRSMediatR\\SBExCQRSMediatR.csproj",
-        "packagesPath": "C:\\Users\\saulo\\.nuget\\packages\\",
-        "outputPath": "C:\\@Project\\StudiesDotNetCSharp\\SBExCQRSMediatR\\obj\\",
+        "projectPath": "C:\\Labs\\StudiesDotNetCSharp\\SBExCQRSMediatR\\SBExCQRSMediatR.csproj",
+        "packagesPath": "C:\\Users\\saulo.lima\\.nuget\\packages\\",
+        "outputPath": "C:\\Labs\\StudiesDotNetCSharp\\SBExCQRSMediatR\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\saulo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\saulo.lima\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -36,7 +36,7 @@ namespace MediatRSampleTW.Handlers
                         IsEfetivado = true 
                     });
 
-                return await Task.FromResult("Pessoa criada com sucesso");
+                return await Task.FromResult("Pessoa alterada com sucesso");
             } catch (Exception ex) {
                 await _mediator.Publish(
                     new PessoaAlteradaNotification  
