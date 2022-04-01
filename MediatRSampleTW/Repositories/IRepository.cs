@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -7,12 +8,12 @@ namespace MediatRSampleTW.Repositories
     {
         Task<IEnumerable<T>> GetAll();
 
-        Task<T> Get(int id);
+        Task<T> Get(Guid id);
 
         Task Add(T item);
 
         Task Edit(T item);
 
-        Task Delete(int id);
+        Task Delete(Guid id);
         }
 }

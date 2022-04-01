@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using MediatR;
 using MediatRSampleTW.Commands;
@@ -26,7 +27,7 @@ namespace MediatRSampleTW.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(Guid id)
         {
             return Ok(await _repository.Get(id));
         }
@@ -46,7 +47,7 @@ namespace MediatRSampleTW.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var obj = new ExcluiPessoaCommand { Id = id };
             var result = await _mediator.Send(obj);

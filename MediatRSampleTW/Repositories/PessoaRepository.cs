@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,13 +7,13 @@ namespace MediatRSampleTW.Repositories
 {
     public class PessoaRepository : IRepository<Pessoa>
     {
-        private static Dictionary<int, Pessoa> pessoas = new Dictionary<int, Pessoa>();
+        private static Dictionary<Guid, Pessoa> pessoas = new Dictionary<Guid, Pessoa>();
 
         public async Task<IEnumerable<Pessoa>> GetAll(){
             return await Task.Run(() => pessoas.Values.ToList());
         }
 
-        public async Task<Pessoa> Get(int id){
+        public async Task<Pessoa> Get(Guid id){
             return await Task.Run(() => pessoas.GetValueOrDefault(id));
         }
 
@@ -28,7 +29,7 @@ namespace MediatRSampleTW.Repositories
             });
         }
 
-        public async Task Delete(int id){
+        public async Task Delete(Guid id){
             await Task.Run(() => pessoas.Remove(id));
         }
     }
