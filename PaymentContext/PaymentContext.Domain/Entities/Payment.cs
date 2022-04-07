@@ -4,7 +4,15 @@ namespace PaymentContext.Domain.Entities
 {
     public abstract class Payment
     {
-        protected Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string payer, string document, string adress, string email)
+        public Payment(
+            DateTime paidDate, 
+            DateTime expireDate, 
+            decimal total, 
+            decimal totalPaid, 
+            string payer, 
+            string document, 
+            string adress, 
+            string email)
         {
             Number = Guid.NewGuid().ToString().ToString().Replace("-", "").Substring(0, 10).ToUpper();
             PaidDate = paidDate;
