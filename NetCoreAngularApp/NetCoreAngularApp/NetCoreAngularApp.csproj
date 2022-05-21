@@ -34,7 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NetCoreAngularApp.Application\NetCoreAngularApp.Application.csproj" />
     <ProjectReference Include="..\NetCoreAngularApp.Data\NetCoreAngularApp.Data.csproj" />
+    <ProjectReference Include="..\NetCoreAngularApp.IoC\NetCoreAngularApp.IoC.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

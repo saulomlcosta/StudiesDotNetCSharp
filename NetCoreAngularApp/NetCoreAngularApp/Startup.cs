@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NetCoreAngularApp.Data.Context;
+using NetCoreAngularApp.IoC;
 
 namespace NetCoreAngularApp
 {
@@ -25,6 +26,8 @@ namespace NetCoreAngularApp
             services.AddControllersWithViews();
 
             services.AddDbContext<NetCoreAppContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("NetCoreAngularAppDB")).EnableSensitiveDataLogging());
+
+            NativeInjector.RegisterServices(services);
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
