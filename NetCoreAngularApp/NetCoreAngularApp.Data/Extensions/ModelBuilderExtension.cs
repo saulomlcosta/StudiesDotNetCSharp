@@ -12,7 +12,7 @@ namespace NetCoreAngularApp.Data.Extensions
         {
             builder.Entity<User>()
                 .HasData(
-                    new User { Id = Guid.Parse("8687ed78-4518-433b-8d96-1af3348fba5a"), Name = "Default User", Email = "default.user@app.com"}
+                    new User { Id = Guid.Parse("8687ed78-4518-433b-8d96-1af3348fba5a"), Name = "Default User", Email = "default.user@app.com", DateCreated = new DateTime(2020,2,2), IsDeleted = false, DateUpdated = null }
                 );
 
             return builder;
