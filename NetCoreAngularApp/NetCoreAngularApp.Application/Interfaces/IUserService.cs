@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NetCoreAngularApp.Application.ViewModels;
 
 namespace NetCoreAngularApp.Application.Interfaces
 {
     public interface IUserService
     {
-        void Test();
+        List<UserViewModel> Get();
     }
 }
