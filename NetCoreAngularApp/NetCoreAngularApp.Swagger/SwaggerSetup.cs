@@ -23,7 +23,6 @@ namespace NetCoreAngularApp.Swagger
                     }
                 });
 
-
                 string xmlPath = Path.Combine("wwwroot", "api-doc.xml");
                 opt.IncludeXmlComments(xmlPath);
             });

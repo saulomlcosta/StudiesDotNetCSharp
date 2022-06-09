@@ -12,16 +12,41 @@ namespace NetCoreAngularApp.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
+        private readonly IUserService userService;
+
+        public UsersController(IUserService userService)
+        {
+            this.userService = userService;
+        }
+
         [HttpGet]
-        public IActionResult Get([FromServices] IUserService userService)
+        public IActionResult Get()
         {
             return Ok(userService.Get());
         }
 
         [HttpPost]
-        public IActionResult Post([FromServices] IUserService userService, UserViewModel userViewModel)
+        public IActionResult Post(UserViewModel userViewModel)
         {
             return Ok(userService.Post(userViewModel));
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(string id)
+        {
+            return Ok(userService.GetById(id));
+        }
+
+        [HttpPut]
+        public IActionResult Put(UserViewModel userViewModel)
+        {
+            return Ok(userService.Put(userViewModel));
+        }
+
+        [HttpPost("{id}")]
+        public IActionResult Delete(string id)
+        {
+            return Ok(userService.Delete(id));
         }
     }
 }

@@ -399,7 +399,6 @@ namespace NetCoreAngularApp.Data.Repositories
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
