@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using NetCoreAngularApp.Application.AutoMapper;
 using NetCoreAngularApp.Data.Context;
 using NetCoreAngularApp.IoC;
+using NetCoreAngularApp.Swagger;
 
 namespace NetCoreAngularApp
 {
@@ -31,6 +32,8 @@ namespace NetCoreAngularApp
 
             services.AddAutoMapper(typeof(AutoMapperSetup));
 
+            services.AddSwaggerConfiguration();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -51,6 +54,8 @@ namespace NetCoreAngularApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwaggerConfiguration();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
