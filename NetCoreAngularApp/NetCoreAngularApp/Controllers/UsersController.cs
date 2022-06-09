@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NetCoreAngularApp.Application.Interfaces;
+using NetCoreAngularApp.Application.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,16 @@ namespace NetCoreAngularApp.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly IUserService userService;
-
-        public UsersController(IUserService userService)
+        [HttpGet]
+        public IActionResult Get([FromServices] IUserService userService)
         {
-            this.userService = userService;
+            return Ok(userService.Get());
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpPost]
+        public IActionResult Post([FromServices] IUserService userService, UserViewModel userViewModel)
         {
-            return Ok(this.userService.Get());
+            return Ok(userService.Post(userViewModel));
         }
     }
 }

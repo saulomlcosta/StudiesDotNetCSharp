@@ -19,7 +19,7 @@ namespace NetCoreAngularApp.IoC
 
             #region Repositories
 
-            services.AddScoped<IUserRepository, UserRepository>();
+                services.AddScoped<IUserRepository, UserRepository>();
 
             #endregion
         }

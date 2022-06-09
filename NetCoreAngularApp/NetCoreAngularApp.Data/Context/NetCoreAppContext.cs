@@ -23,6 +23,8 @@ namespace NetCoreAngularApp.Data.Context
         {
             modelBuilder.ApplyConfiguration(new UserMap());
 
+            modelBuilder.ApplyGlobalConfiguration();
+
             modelBuilder.SeedData();
 
             base.OnModelCreating(modelBuilder);

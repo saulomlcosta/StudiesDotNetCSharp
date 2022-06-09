@@ -8,5 +8,6 @@ namespace NetCoreAngularApp.Application.Interfaces
     public interface IUserService
     {
         List<UserViewModel> Get();
+        bool Post(UserViewModel userViewModel);
     }
 }

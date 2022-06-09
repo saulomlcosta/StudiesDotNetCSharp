@@ -5,7 +5,7 @@ using NetCoreAngularApp.Domain.Entities;
 
 namespace NetCoreAngularApp.Domain.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository<User>
     {
         IEnumerable<User> GetAll();
     }
