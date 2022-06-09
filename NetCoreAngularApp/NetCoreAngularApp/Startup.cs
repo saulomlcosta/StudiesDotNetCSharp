@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NetCoreAngularApp.Application.AutoMapper;
 using NetCoreAngularApp.Data.Context;
 using NetCoreAngularApp.IoC;
 
@@ -28,6 +28,8 @@ namespace NetCoreAngularApp
             services.AddDbContext<NetCoreAppContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("NetCoreAngularAppDB")).EnableSensitiveDataLogging());
 
             NativeInjector.RegisterServices(services);
+
+            services.AddAutoMapper(typeof(AutoMapperSetup));
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
