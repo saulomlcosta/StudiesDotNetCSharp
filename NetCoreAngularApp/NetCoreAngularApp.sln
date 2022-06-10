@@ -29,6 +29,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreAngularApp.Swagger",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreAngularApp.Auth", "NetCoreAngularApp.Auth\NetCoreAngularApp.Auth.csproj", "{DC97367E-00CE-449E-B4AC-AA12F4DD8737}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Tests", "0-Tests", "{B4C78E53-8BCC-4E49-9C96-B53B718EB237}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreAngularApp.Application.Tests", "NetCoreAngularApp.Application.Tests\NetCoreAngularApp.Application.Tests.csproj", "{BD60C648-2DB7-49FA-8F69-0987B1EE333D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{DC97367E-00CE-449E-B4AC-AA12F4DD8737}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC97367E-00CE-449E-B4AC-AA12F4DD8737}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC97367E-00CE-449E-B4AC-AA12F4DD8737}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD60C648-2DB7-49FA-8F69-0987B1EE333D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD60C648-2DB7-49FA-8F69-0987B1EE333D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD60C648-2DB7-49FA-8F69-0987B1EE333D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD60C648-2DB7-49FA-8F69-0987B1EE333D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +85,7 @@ Global
 		{EEFB0864-DDC7-4242-A9FB-33FB11FF68DF} = {518DB82A-817C-44D1-AEA3-E030F88F3FFF}
 		{EBBD8EA5-4EDB-4580-9F86-D784E2434DDA} = {518DB82A-817C-44D1-AEA3-E030F88F3FFF}
 		{DC97367E-00CE-449E-B4AC-AA12F4DD8737} = {518DB82A-817C-44D1-AEA3-E030F88F3FFF}
+		{BD60C648-2DB7-49FA-8F69-0987B1EE333D} = {B4C78E53-8BCC-4E49-9C96-B53B718EB237}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B847BB49-0559-4A93-ACF5-7711F49C2890}

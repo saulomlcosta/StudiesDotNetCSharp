@@ -49,6 +49,9 @@ namespace NetCoreAngularApp.Application.Services
             //    Name = userViewModel.Name
             //};
 
+            if (userViewModel.Id != Guid.Empty)
+                throw new Exception("UserID must be empty");
+
             User _user = mapper.Map<User>(userViewModel);
 
             userRepository.Create(_user);
@@ -70,6 +73,9 @@ namespace NetCoreAngularApp.Application.Services
 
         public bool Put(UserViewModel userViewModel)
         {
+            if (userViewModel.Id == Guid.Empty)
+                throw new Exception("ID is invalid");
+
             User _user = userRepository.Find(x => x.Id == userViewModel.Id && !x.IsDeleted);
             if (_user == null)
                 throw new Exception("User not found");
@@ -97,6 +103,9 @@ namespace NetCoreAngularApp.Application.Services
 
         public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user)
         {
+            if (string.IsNullOrEmpty(user.Email))
+                throw new Exception("Email/Password are required.");
+            
             User _user = userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower());
             if (_user == null)
                 throw new Exception("User not found");
