@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using NetCoreAngularApp.Auth.Models;
@@ -32,5 +33,13 @@ namespace NetCoreAngularApp.Auth.Services
 
             return tokenHandler.WriteToken(token);
         }
+
+        public static string GetValueFromClaim(IIdentity identity, string field)
+        {
+            var claims = identity as ClaimsIdentity;
+
+            return claims.FindFirst(field).Value;
+        }
+            
     }
 }

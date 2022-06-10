@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NetCoreAngularApp.Application.Interfaces;
 using NetCoreAngularApp.Application.ViewModels;
+using NetCoreAngularApp.Auth.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace NetCoreAngularApp.Controllers
 {
-    [ApiController]
+    [ApiController, Authorize]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
@@ -43,13 +46,15 @@ namespace NetCoreAngularApp.Controllers
             return Ok(userService.Put(userViewModel));
         }
 
-        [HttpPost("{id}")]
-        public IActionResult Delete(string id)
+        [HttpDelete()]
+        public IActionResult Delete()
         {
-            return Ok(userService.Delete(id));
+            string _userId = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
+
+            return Ok(userService.Delete(_userId));
         }
 
-        [HttpPost("authenticate")]
+        [HttpPost("authenticate"), AllowAnonymous]
         public IActionResult Authenticate(UserAuthenticateRequestViewModel userViewModel)
         {
             return Ok(userService.Authenticate(userViewModel));
