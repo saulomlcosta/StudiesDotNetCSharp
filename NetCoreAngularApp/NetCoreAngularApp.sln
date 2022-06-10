@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreAngularApp.Data", "N
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreAngularApp.IoC", "NetCoreAngularApp.IoC\NetCoreAngularApp.IoC.csproj", "{EEFB0864-DDC7-4242-A9FB-33FB11FF68DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreAngularApp.Swagger", "NetCoreAngularApp.Swagger\NetCoreAngularApp.Swagger.csproj", "{EBBD8EA5-4EDB-4580-9F86-D784E2434DDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreAngularApp.Swagger", "NetCoreAngularApp.Swagger\NetCoreAngularApp.Swagger.csproj", "{EBBD8EA5-4EDB-4580-9F86-D784E2434DDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreAngularApp.Auth", "NetCoreAngularApp.Auth\NetCoreAngularApp.Auth.csproj", "{DC97367E-00CE-449E-B4AC-AA12F4DD8737}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{EBBD8EA5-4EDB-4580-9F86-D784E2434DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBBD8EA5-4EDB-4580-9F86-D784E2434DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBBD8EA5-4EDB-4580-9F86-D784E2434DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC97367E-00CE-449E-B4AC-AA12F4DD8737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC97367E-00CE-449E-B4AC-AA12F4DD8737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC97367E-00CE-449E-B4AC-AA12F4DD8737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC97367E-00CE-449E-B4AC-AA12F4DD8737}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{50EA3DC3-73DD-4580-869C-E45029C8E916} = {76B6BE2F-00BA-49E2-9286-06203DB66B28}
 		{EEFB0864-DDC7-4242-A9FB-33FB11FF68DF} = {518DB82A-817C-44D1-AEA3-E030F88F3FFF}
 		{EBBD8EA5-4EDB-4580-9F86-D784E2434DDA} = {518DB82A-817C-44D1-AEA3-E030F88F3FFF}
+		{DC97367E-00CE-449E-B4AC-AA12F4DD8737} = {518DB82A-817C-44D1-AEA3-E030F88F3FFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B847BB49-0559-4A93-ACF5-7711F49C2890}

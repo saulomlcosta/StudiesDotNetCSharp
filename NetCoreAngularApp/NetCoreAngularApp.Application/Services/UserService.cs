@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using NetCoreAngularApp.Application.Interfaces;
 using NetCoreAngularApp.Application.ViewModels;
+using NetCoreAngularApp.Auth.Services;
 using NetCoreAngularApp.Domain.Entities;
 using NetCoreAngularApp.Domain.Interfaces;
 using System;
@@ -92,6 +93,15 @@ namespace NetCoreAngularApp.Application.Services
             userRepository.Delete(_user);
 
             return true;
+        }
+
+        public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user)
+        {
+            User _user = userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower());
+            if (_user == null)
+                throw new Exception("User not found");
+
+            return new UserAuthenticateResponseViewModel(mapper.Map<UserViewModel>(_user), TokenService.GenerateToken(_user));
         }
     }
 }

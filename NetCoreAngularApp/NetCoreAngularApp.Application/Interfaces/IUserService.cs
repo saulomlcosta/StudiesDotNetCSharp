@@ -12,5 +12,6 @@ namespace NetCoreAngularApp.Application.Interfaces
         UserViewModel GetById(string id);
         bool Put(UserViewModel userViewModel);
         bool Delete(string id);
+        UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user);
     }
 }

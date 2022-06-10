@@ -48,5 +48,11 @@ namespace NetCoreAngularApp.Controllers
         {
             return Ok(userService.Delete(id));
         }
+
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate(UserAuthenticateRequestViewModel userViewModel)
+        {
+            return Ok(userService.Authenticate(userViewModel));
+        }
     }
 }

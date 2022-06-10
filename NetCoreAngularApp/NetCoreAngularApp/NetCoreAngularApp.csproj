@@ -37,6 +37,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NetCoreAngularApp.Application\NetCoreAngularApp.Application.csproj" />
+    <ProjectReference Include="..\NetCoreAngularApp.Auth\NetCoreAngularApp.Auth.csproj" />
     <ProjectReference Include="..\NetCoreAngularApp.Data\NetCoreAngularApp.Data.csproj" />
     <ProjectReference Include="..\NetCoreAngularApp.IoC\NetCoreAngularApp.IoC.csproj" />
     <ProjectReference Include="..\NetCoreAngularApp.Swagger\NetCoreAngularApp.Swagger.csproj" />
