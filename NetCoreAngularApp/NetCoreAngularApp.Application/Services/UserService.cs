@@ -6,6 +6,7 @@ using NetCoreAngularApp.Domain.Entities;
 using NetCoreAngularApp.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace NetCoreAngularApp.Application.Services
@@ -28,29 +29,17 @@ namespace NetCoreAngularApp.Application.Services
 
             IEnumerable<User> _users = userRepository.GetAll();
 
-            _userViewModels = mapper.Map<List<UserViewModel>>(_users);
-
-            //Without AutoMapper
-
-            //foreach(var item in _users)
-            //    _userViewModels.Add(new UserViewModel { Id = item.Id, Email = item.Email, Name = item.Name });
+            _userViewModels = mapper.Map<List<UserViewModel>>(_users);           
 
             return _userViewModels;
         }
 
         public bool Post(UserViewModel userViewModel)
         {
-            //Without AutoMapper
-
-            //User _user = new User
-            //{
-            //    Id = Guid.NewGuid(),
-            //    Email = userViewModel.Email,
-            //    Name = userViewModel.Name
-            //};
-
             if (userViewModel.Id != Guid.Empty)
                 throw new Exception("UserID must be empty");
+
+            Validator.ValidateObject(userViewModel, new ValidationContext(userViewModel), true);
 
             User _user = mapper.Map<User>(userViewModel);
 

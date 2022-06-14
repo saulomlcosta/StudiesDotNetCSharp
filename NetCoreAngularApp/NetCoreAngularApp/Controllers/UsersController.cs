@@ -31,6 +31,9 @@ namespace NetCoreAngularApp.Controllers
         [HttpPost]
         public IActionResult Post(UserViewModel userViewModel)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             return Ok(userService.Post(userViewModel));
         }
 
