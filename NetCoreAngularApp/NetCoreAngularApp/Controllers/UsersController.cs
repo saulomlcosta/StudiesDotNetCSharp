@@ -22,7 +22,7 @@ namespace NetCoreAngularApp.Controllers
             this.userService = userService;
         }
 
-        [HttpGet]
+        [HttpGet, AllowAnonymous]
         public IActionResult Get()
         {
             return Ok(userService.Get());

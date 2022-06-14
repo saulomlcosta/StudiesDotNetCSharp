@@ -1,0 +1,28 @@
+<button class="btn btn-primary mb-5" (click)="showList = !showList">
+  {{ showList ? "New User" : "List of Users" }}
+</button>
+<table class="table">
+  <div *ngIf="showList">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{ user.id }}</th>
+        <th scope="row">{{ user.name }}</th>
+        <th scope="row">{{ user.email }}</th>
+        <th scope="row">
+          <button type="button" class="btn btn-primary">Edit</button>
+        </th>
+      </tr>
+    </tbody>
+  </div>
+  <div *ngIf="!showList">
+    <form></form>
+  </div>
+</table>
