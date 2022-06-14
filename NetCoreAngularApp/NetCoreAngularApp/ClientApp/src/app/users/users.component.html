@@ -8,7 +8,8 @@
         <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Action</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +18,22 @@
         <th scope="row">{{ user.name }}</th>
         <th scope="row">{{ user.email }}</th>
         <th scope="row">
-          <button type="button" class="btn btn-primary">Edit</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="openDetails(user)"
+          >
+            Edit
+          </button>
+        </th>
+        <th scope="row">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteUser(user)"
+          >
+            Delete
+          </button>
         </th>
       </tr>
     </tbody>
@@ -47,7 +63,7 @@
           name="email"
         />
       </div>
-      <button type="submit" class="btn btn-primary" (click)="post()">
+      <button type="submit" class="btn btn-primary" (click)="save()">
         Save
       </button>
     </form>

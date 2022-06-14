@@ -30,6 +30,15 @@ export class UsersComponent implements OnInit {
     );
   }
 
+  save() {
+   !this.user.id ? this.post() : this.put(); 
+  }
+
+  openDetails(user) {
+    this.showList = false;
+    this.user = user;
+  }
+
   post() {
     this.userDataService.post(this.user).subscribe(
       (data) => {
@@ -39,6 +48,42 @@ export class UsersComponent implements OnInit {
           this.user = {};
         } else {
           alert("Error creating user");
+        }
+      },
+      (error) => {
+        console.log(error);
+        alert("Internal Error");
+      }
+    );
+  }
+
+  put() {
+    this.userDataService.put(this.user).subscribe(
+      (data) => {
+        if (data) {
+          alert("User updated successfully");
+          this.get();
+          this.user = {};
+        } else {
+          alert("Error updating user");
+        }
+      },
+      (error) => {
+        console.log(error);
+        alert("Internal Error");
+      }
+    );
+  }
+
+  deleteUser(user) {
+    this.userDataService.delete(user).subscribe(
+      (data) => {
+        if (data) {
+          alert("User updated successfully");
+          this.get();
+          this.user = {};
+        } else {
+          alert("Error updating user");
         }
       },
       (error) => {

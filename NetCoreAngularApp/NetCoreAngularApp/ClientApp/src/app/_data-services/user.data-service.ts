@@ -14,4 +14,12 @@ export class UserDataService {
   post(data) {
     return this.http.post(this.module, data);
   }
+
+  put(data) {
+    return this.http.put(this.module, data);
+  }
+
+  delete(data) {
+    return this.http.delete(this.module, data);
+  }
 }

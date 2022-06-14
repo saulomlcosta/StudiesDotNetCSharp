@@ -43,7 +43,7 @@ namespace NetCoreAngularApp.Controllers
             return Ok(userService.GetById(id));
         }
 
-        [HttpPut]
+        [HttpPut, AllowAnonymous]
         public IActionResult Put(UserViewModel userViewModel)
         {
             return Ok(userService.Put(userViewModel));
