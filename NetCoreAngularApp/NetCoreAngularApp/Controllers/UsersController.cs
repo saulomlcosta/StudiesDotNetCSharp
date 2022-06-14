@@ -28,7 +28,7 @@ namespace NetCoreAngularApp.Controllers
             return Ok(userService.Get());
         }
 
-        [HttpPost]
+        [HttpPost, AllowAnonymous]
         public IActionResult Post(UserViewModel userViewModel)
         {
             if (!ModelState.IsValid)

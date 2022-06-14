@@ -21,6 +21,7 @@ export class UsersComponent implements OnInit {
     this.userDataService.get().subscribe(
       (data: any[]) => {
         this.users = data;
+        this.showList = true;
       },
       (error) => {
         console.log(error);
@@ -34,6 +35,8 @@ export class UsersComponent implements OnInit {
       (data) => {
         if (data) {
           alert("User created successfully");
+          this.get();
+          this.user = {};
         } else {
           alert("Error creating user");
         }
