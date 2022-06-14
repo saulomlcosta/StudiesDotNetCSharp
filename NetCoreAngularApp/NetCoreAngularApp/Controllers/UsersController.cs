@@ -49,12 +49,12 @@ namespace NetCoreAngularApp.Controllers
             return Ok(userService.Put(userViewModel));
         }
 
-        [HttpDelete()]
-        public IActionResult Delete()
+        [HttpDelete("{userId}"), AllowAnonymous]
+        public IActionResult Delete(string userId)
         {
-            string _userId = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
+            //string _userId = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
 
-            return Ok(userService.Delete(_userId));
+            return Ok(userService.Delete(userId));
         }
 
         [HttpPost("authenticate"), AllowAnonymous]

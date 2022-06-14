@@ -75,15 +75,15 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  deleteUser(user) {
-    this.userDataService.delete(user).subscribe(
-      (data) => {
-        if (data) {
-          alert("User updated successfully");
+  delete(user) {
+    this.userDataService.delete(user.id).subscribe(
+      (userId) => {
+        if (userId) {
+          alert("User deleted successfully");
           this.get();
           this.user = {};
         } else {
-          alert("Error updating user");
+          alert("Error deleting user");
         }
       },
       (error) => {

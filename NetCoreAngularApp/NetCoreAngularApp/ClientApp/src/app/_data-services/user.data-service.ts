@@ -19,7 +19,8 @@ export class UserDataService {
     return this.http.put(this.module, data);
   }
 
-  delete(data) {
-    return this.http.delete(this.module, data);
+  delete(userId) {
+    debugger
+    return this.http.delete(this.module + '/' + userId);
   }
 }
