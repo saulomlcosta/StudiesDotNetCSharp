@@ -7,15 +7,16 @@ import { UserDataService } from "../_data-services/user.data-service";
   styleUrls: ["./users.component.css"],
 })
 export class UsersComponent implements OnInit {
-  users: any[];
+  users: any[] = [];
   user: any = {};
+  userLogin: any = {};
+  userLogged: any = {};
   showList: boolean = true;
+  isAuthenticated: boolean = false;
 
   constructor(private userDataService: UserDataService) {}
 
-  ngOnInit() {
-    this.get();
-  }
+  ngOnInit() {}
 
   get() {
     this.userDataService.get().subscribe(
@@ -31,7 +32,11 @@ export class UsersComponent implements OnInit {
   }
 
   save() {
-   !this.user.id ? this.post() : this.put(); 
+    if (this.user.id) {
+      this.put();
+    } else {
+      this.post();
+    }
   }
 
   openDetails(user) {
@@ -75,10 +80,10 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  delete(user) {
-    this.userDataService.delete(user.id).subscribe(
-      (userId) => {
-        if (userId) {
+  delete() {
+    this.userDataService.delete().subscribe(
+      (data) => {
+        if (data) {
           alert("User deleted successfully");
           this.get();
           this.user = {};
@@ -91,5 +96,28 @@ export class UsersComponent implements OnInit {
         alert("Internal Error");
       }
     );
+  }
+
+  authenticate() {
+    this.userDataService.authenticate(this.userLogin).subscribe(
+      (data: any) => {
+        if (data.user) {
+          localStorage.setItem("user_logged", JSON.stringify(data));
+          this.get();
+          this.getUserData();
+        } else {
+          alert("User invalid.");
+        }
+      },
+      (error) => {
+        console.log(error);
+        alert("User invalid");
+      }
+    );
+  }
+
+  getUserData() {
+    this.userLogged = JSON.parse(localStorage.getItem("user_logged"));
+    this.isAuthenticated = this.userLogged != null;
   }
 }

@@ -19,8 +19,11 @@ export class UserDataService {
     return this.http.put(this.module, data);
   }
 
-  delete(userId) {
-    debugger
-    return this.http.delete(this.module + '/' + userId);
+  delete() {
+    return this.http.delete(this.module);
+  }
+
+  authenticate(data) {
+    return this.http.post(this.module + "/authenticate", data);
   }
 }

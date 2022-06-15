@@ -22,7 +22,7 @@ namespace NetCoreAngularApp.Controllers
             this.userService = userService;
         }
 
-        [HttpGet, AllowAnonymous]
+        [HttpGet]
         public IActionResult Get()
         {
             return Ok(userService.Get());
@@ -43,18 +43,18 @@ namespace NetCoreAngularApp.Controllers
             return Ok(userService.GetById(id));
         }
 
-        [HttpPut, AllowAnonymous]
+        [HttpPut]
         public IActionResult Put(UserViewModel userViewModel)
         {
             return Ok(userService.Put(userViewModel));
         }
 
-        [HttpDelete("{userId}"), AllowAnonymous]
-        public IActionResult Delete(string userId)
+        [HttpDelete]
+        public IActionResult Delete()
         {
-            //string _userId = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
+            string _userId = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
 
-            return Ok(userService.Delete(userId));
+            return Ok(userService.Delete(_userId));
         }
 
         [HttpPost("authenticate"), AllowAnonymous]
