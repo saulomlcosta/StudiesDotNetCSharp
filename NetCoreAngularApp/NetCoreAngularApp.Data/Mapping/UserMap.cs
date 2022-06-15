@@ -13,7 +13,10 @@ namespace NetCoreAngularApp.Data.Mapping
         {
             builder.Property(x => x.Id).IsRequired();
 
-            builder.Property(x => x.Id).HasMaxLength(100).IsRequired();
+            builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
+
+            builder.Property(x => x.Password).IsRequired().HasDefaultValue("!@#!@#!@#");
+
         }
     }
 }

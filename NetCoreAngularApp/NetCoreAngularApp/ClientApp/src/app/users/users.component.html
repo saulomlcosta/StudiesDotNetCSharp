@@ -4,7 +4,6 @@
     {{ showList ? "New User" : "User's List" }}
   </button>
 </div>
-<p *ngIf="isAuthenticated">Users ({{ users?.length }})</p>
 <div *ngIf="showList">
   <div *ngIf="isAuthenticated">
     <table class="table">
